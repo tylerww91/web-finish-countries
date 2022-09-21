@@ -22,11 +22,15 @@ export async function getCountries(name, continent) {
     }
     // > Part A: `await` the query and return the response
     const response = await query;
-    console.log(response);
+    // console.log(response);
     return response;
 }
 
 export async function getContinents() {
     // > Part B: await client query from country_continents
     // (select all columns) and return response
+    let query = client.from('country_continents').select('*').order('name');
+
+    const response = await query;
+    return response;
 }
